@@ -422,6 +422,8 @@ img {
 
 #submitButton {
     cursor: pointer;
+    font-weight: var(--font-medium);
+    font-size: 1.2rem;
 }
 
 /*==================== ABOUT ====================*/
@@ -948,6 +950,7 @@ img {
 
     .about__buttons {
         justify-content: initial;
+        padding-left: 5.3rem;
     }
 
     .qualification__tabs {
@@ -1076,5 +1079,9 @@ img {
 
     .contact__inputs {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about__buttons {
+        padding-left: 5.3rem;
     }
 }
