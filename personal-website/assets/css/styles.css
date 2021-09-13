@@ -146,6 +146,11 @@ img {
     text-align: center;
 }
 
+.stuff__notes {
+    padding: 2rem 0 4rem;
+    text-align: left;
+}
+
 /*==================== LAYOUT ====================*/
 .container {
     max-width: 768px;

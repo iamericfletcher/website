@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Fetch and Graph CSV</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+</head>
+<body>
+
+
+<canvas id="chart" width="800" height="200"></canvas>
+
+<script>
+
+    chartIt();
+
+    async function chartIt() {
+
+        const data = await getData();
+
+        const ctx = document.getElementById('chart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.years,
+                datasets: [
+                    {
+                        label: 'Retired',
+                        data: data.retired,
+                        backgroundColor: [
+                            'rgba(255, 202, 58, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 202, 58, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Died While in Office',
+                        data: data.died,
+                        backgroundColor: [
+                            'rgba(255, 89, 94, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 89, 94, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'New Opportunity',
+                        data: data.newOpportunity,
+                        backgroundColor: [
+                            'rgba(138, 201, 38, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(138, 201, 38, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Performance',
+                        data: data.performance,
+                        backgroundColor: [
+                            'rgba(25, 130, 196, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(25, 130, 196, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Illness',
+                        data: data.illness,
+                        backgroundColor: [
+                            'rgba(106, 76, 147, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(106, 76, 147, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Legal',
+                        data: data.legal,
+                        backgroundColor: [
+                            'rgba(94, 48, 35, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(94, 48, 35, 1)',
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'CEO Departures in S&P 1500 Firms From 1990 Through 2020'
+                    },
+                    legend: {
+                        position: 'right'
+                    },
+                },
+                interaction: {
+                    intersect: 'xy',
+                    mode: 'nearest'
+                }
+            }
+        })
+    }
+
+    async function getData() {
+
+        const response = await fetch('departures-wide.csv');
+        const data = await response.text();
+        const years = [];
+        const retired = [];
+        const died = [];
+        const newOpportunity = [];
+        const performance = [];
+        const illness = [];
+        const legal = [];
+
+
+        const table = data.split('\n');
+
+        table.forEach(row => {
+
+            const columns = row.split(',');
+            const eventFiscalYear = columns[0];
+
+            // remove the column name from x-axis
+            if (eventFiscalYear !== 'fyear') {
+                years.push(columns[0]);
+                retired.push(columns[1]);
+                died.push(columns[2]);
+                newOpportunity.push(columns[3]);
+                performance.push(columns[5]);
+                illness.push(columns[6])
+                legal.push(columns[7])
+
+            }
+
+        });
+
+        return {years, retired, died, newOpportunity, performance, illness, legal};
+
+    }
+
+
+</script>
+
+</body>
+</html>
