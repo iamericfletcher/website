@@ -917,6 +917,10 @@ img {
         padding: 0 .5rem;
     }
 
+    .stuff__link {
+        text-align: center;
+    }
+
     .project__img {
         width: 200px;
     }
