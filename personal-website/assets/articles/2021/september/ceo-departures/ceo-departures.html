@@ -57,7 +57,7 @@
 <!--<canvas id="chart" width="800" height="200"></canvas>-->
 
 <div class="table-responsive">
-    <canvas id="chart" style="min-height:250px" class="table"></canvas>
+    <canvas id="chart" style="max-height:200px; width: auto" class="table"></canvas>
 </div>
 
 <script>
@@ -144,6 +144,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,
