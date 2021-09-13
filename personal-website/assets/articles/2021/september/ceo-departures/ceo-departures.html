@@ -54,11 +54,11 @@
 <body>
 
 <!--BEGIN CHART-->
-<canvas id="chart" width="800" height="200"></canvas>
+<!--<canvas id="chart" width="800" height="200"></canvas>-->
 
-<!--<div class="table-responsive">-->
-<!--    <canvas id="chart" style="max-height:200px; width: auto" class="table"></canvas>-->
-<!--</div>-->
+<div class="table-responsive">
+    <canvas id="chart" style="max-height:500px; min-width: 200px" class="table"></canvas>
+</div>
 
 <script>
 
@@ -86,28 +86,6 @@
                         borderWidth: 1
                     },
                     {
-                        label: 'Died While in Office',
-                        data: data.died,
-                        backgroundColor: [
-                            'rgba(255, 89, 94, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 89, 94, 1)',
-                        ],
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'New Opportunity',
-                        data: data.newOpportunity,
-                        backgroundColor: [
-                            'rgba(138, 201, 38, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(138, 201, 38, 1)',
-                        ],
-                        borderWidth: 1
-                    },
-                    {
                         label: 'Performance',
                         data: data.performance,
                         backgroundColor: [
@@ -115,6 +93,28 @@
                         ],
                         borderColor: [
                             'rgba(25, 130, 196, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Legal',
+                        data: data.legal,
+                        backgroundColor: [
+                            'rgba(94, 48, 35, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(94, 48, 35, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'New Job',
+                        data: data.newOpportunity,
+                        backgroundColor: [
+                            'rgba(138, 201, 38, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(138, 201, 38, 1)',
                         ],
                         borderWidth: 1
                     },
@@ -130,13 +130,13 @@
                         borderWidth: 1
                     },
                     {
-                        label: 'Legal',
-                        data: data.legal,
+                        label: 'Death',
+                        data: data.died,
                         backgroundColor: [
-                            'rgba(94, 48, 35, 0.2)',
+                            'rgba(255, 89, 94, 0.2)',
                         ],
                         borderColor: [
-                            'rgba(94, 48, 35, 1)',
+                            'rgba(255, 89, 94, 1)',
                         ],
                         borderWidth: 1
                     }
@@ -144,7 +144,7 @@
             },
             options: {
                 responsive: true,
-                // maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -163,14 +163,21 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'CEO Departure in S&P 1500 Firms From 1990 Through 2020'
+                        text: 'CEO Departures',
+                    },
+                    subtitle: {
+                        display: true,
+                        text: 'S&P 1500 Firms From 1990 Through 2020'
                     },
                     legend: {
-                        position: 'top',
+                        position: 'bottom',
                         title: {
-                            display: true,
+                            display: false,
                             text: 'Departure Type',
                             // padding: 10
+                        },
+                        labels: {
+                            boxWidth: 10
                         }
                     }
                 },
