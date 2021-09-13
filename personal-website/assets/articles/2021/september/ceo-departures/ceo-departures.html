@@ -54,11 +54,11 @@
 <body>
 
 <!--BEGIN CHART-->
-<!--<canvas id="chart" width="800" height="200"></canvas>-->
+<canvas id="chart" width="800" height="200"></canvas>
 
-<div class="table-responsive">
-    <canvas id="chart" style="max-height:200px; width: auto" class="table"></canvas>
-</div>
+<!--<div class="table-responsive">-->
+<!--    <canvas id="chart" style="max-height:200px; width: auto" class="table"></canvas>-->
+<!--</div>-->
 
 <script>
 
@@ -144,7 +144,7 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
+                // maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -155,7 +155,7 @@
                     },
                     x: {
                         title: {
-                            display: true,
+                            display: false,
                             text: 'Year'
                         }
                     }
@@ -166,12 +166,13 @@
                         text: 'CEO Departure in S&P 1500 Firms From 1990 Through 2020'
                     },
                     legend: {
-                        position: 'right',
+                        position: 'top',
                         title: {
                             display: true,
-                            text: 'Departure Type'
+                            text: 'Departure Type',
+                            // padding: 10
                         }
-                    },
+                    }
                 },
                 interaction: {
                     intersect: false,
