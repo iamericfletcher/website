@@ -57,6 +57,29 @@
         --small-font-size: .875rem;
         --smaller-font-size: .813rem;
     }
+
+    .button--download--resume {
+        display: inline-block;
+        border: none;
+        background-color: var(--first-color);
+        color: #FFF;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: .5rem;
+        font-weight: var(--font-medium);
+    }
+
+    .button--view--resume {
+        display: inline-block;
+        border: none;
+        background-color: var(--first-color);
+        color: #FFF;
+        padding: 1rem;
+        margin-left: 1.4rem;
+        border-radius: .5rem;
+        font-weight: var(--font-medium);
+    }
+
 }
 
 /*========== Variables Dark theme ==========*/
@@ -386,6 +409,29 @@ img {
     font-weight: var(--font-medium);
 }
 
+.button--download--resume {
+    display: inline-block;
+    border: none;
+    background-color: var(--first-color);
+    color: #FFF;
+    padding: 1rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+}
+
+.button--view--resume {
+    display: inline-block;
+    border: none;
+    background-color: var(--first-color);
+    color: #FFF;
+    padding: 1rem;
+    margin-left: 1.4rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+}
+
 .button:hover {
     background-color: var(--first-color-alt);
 }
@@ -436,7 +482,7 @@ img {
     width: 200px;
     border-radius: .5rem;
     justify-self: center;
-    align-self: center;
+    /*align-self: center;*/
     object-position: right top;
     /*padding-bottom: 20rem;*/
 }
@@ -467,10 +513,14 @@ img {
     text-align: center;
 }
 
+/**/
 .about__buttons {
-    display: flex;
+    display: inline-block;
     justify-content: center;
+    padding-left: 79px;
+
 }
+
 
 /*==================== SKILLS ====================*/
 .skills__container {
@@ -938,6 +988,26 @@ img {
     .testimonial__data, .testimonial__description {
         text-align: center;
     }
+
+    .about__buttons {
+        display: inline-block;
+        justify-content: center;
+        padding-left: 38px;
+    }
+
+
+}
+
+/*iPhone X*/
+@media only screen
+and (device-width: 375px)
+and (device-height: 812px)
+and (-webkit-device-pixel-ratio: 3) {
+    .about__buttons {
+        display: inline-block;
+        justify-content: center;
+        padding-left: 61px;
+    }
 }
 
 /* For medium devices */
@@ -969,6 +1039,7 @@ img {
         grid-template-columns: .6fr;
         justify-content: center;
     }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -1060,8 +1131,9 @@ img {
     }
 
     .about__buttons {
-        justify-content: initial;
-        padding-left: 5.3rem;
+        display: inline-block;
+        justify-content: center;
+        padding-left: 60px;
     }
 
     .qualification__tabs {
@@ -1193,6 +1265,8 @@ img {
     }
 
     .about__buttons {
-        padding-left: 4rem;
+        display: inline-block;
+        justify-content: center;
+        padding-left: 65px;
     }
 }
