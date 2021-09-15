@@ -472,6 +472,10 @@ img {
     justify-content: center;
 }
 
+#view__button {
+    margin-left: .2rem;
+}
+
 /*==================== SKILLS ====================*/
 .skills__container {
     row-gap: 0;
