@@ -1064,8 +1064,8 @@ img {
     }
 
     .about__buttons {
-        justify-content: initial;
-        padding-left: 5.3rem;
+        justify-content: center;
+        /*padding-left: 5.3rem;*/
     }
 
     .qualification__tabs {
@@ -1197,6 +1197,6 @@ img {
     }
 
     .about__buttons {
-        padding-left: 4rem;
+        /*padding-left: 4rem;*/
     }
 }
