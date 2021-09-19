@@ -805,7 +805,7 @@ img {
     padding: 5px;
 }
 
-figcaption {
+.figcaption {
     color: black;
     font-style: italic;
     padding: 2px;
