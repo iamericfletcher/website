@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
     <title>CEO Departures</title>
 
     <!--  Essential META Tags -->
 
-    <meta property="og:title" content="Hi, I'm Eric."/>
-    <meta property="og:description" content="CEO departure in S&P 1500 firms from 1990 through 2020."/>
-    <meta property="og:image"
-          content="https://user-images.githubusercontent.com/64165327/130359767-5860c777-645a-481d-ae90-453124975c40.png"/>
-    <meta property="og:url" content="https://iamericfletcher.com"/>
-    <meta name="twitter:card" content="summary_large_image">
+    <meta content="Hi, I'm Eric." property="og:title"/>
+    <meta content="CEO departure in S&P 1500 firms from 1990 through 2020." property="og:description"/>
+    <meta content="https://user-images.githubusercontent.com/64165327/130359767-5860c777-645a-481d-ae90-453124975c40.png"
+          property="og:image"/>
+    <meta content="https://iamericfletcher.com" property="og:url"/>
+    <meta content="summary_large_image" name="twitter:card">
 
 
     <!--  Non-Essential, But Recommended -->
 
-    <meta property="og:site_name" content="Eric Fletcher's Personal Website">
-    <meta name="twitter:image:alt" content="Alt text for image">
+    <meta content="Eric Fletcher's Personal Website" property="og:site_name">
+    <meta content="Alt text for image" name="twitter:image:alt">
 
 
     <!--  Non-Essential, But Required for Analytics -->
 
-    <meta name="twitter:site" content="@iamericfletcher">
+    <meta content="@iamericfletcher" name="twitter:site">
 
     <title>Eric Fletcher's Personal Site</title>
 
@@ -43,10 +43,10 @@
     </script>
 
     <!--==================== UNICONS ====================-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" rel="stylesheet">
 
     <!--==================== CSS ==========-->
-    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link href="../../../../css/styles.css" rel="stylesheet">
 
     <!--ChartJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
@@ -57,7 +57,7 @@
 <!--<canvas id="chart" width="800" height="200"></canvas>-->
 
 <div class="table-responsive">
-    <canvas id="chart" style="max-height:500px; min-width: 200px" class="table"></canvas>
+    <canvas class="table" id="chart" style="max-height:500px; min-width: 200px"></canvas>
 </div>
 
 <script>
@@ -236,13 +236,17 @@
 
     <div style="text-align: center">
 
-        <li style="display: inline-block;">
-            <a href="https://www.iamericfletcher.com" class="nav__link active-link">Home</a>
-        </li>
+        <menu>
 
-        <li style="display: inline-block;">
-            <a href="https://www.iamericfletcher.com/blog.html" class="nav__link active-link">Blog</a>
-        </li>
+            <li style="display: inline-block;">
+                <a class="blog__header__links active-link" href="https://www.iamericfletcher.com">Home</a>
+            </li>
+
+            <li style="display: inline-block;">
+                <a class="blog__header__links active-link" href="https://www.iamericfletcher.com/blog.html">Blog</a>
+            </li>
+
+        </menu>
 
     </div>
 
