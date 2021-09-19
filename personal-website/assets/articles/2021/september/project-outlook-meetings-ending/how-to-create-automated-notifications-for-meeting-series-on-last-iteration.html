@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="description"
+          content="How to Create Automated Notifications for Meeting Series on Last Iteration Using Power Automate">
+
+    <title>Automated Notifications for Meeting Series on Last Iteration</title>
+
+    <style>
+        .img-container {
+            text-align: center;
+            display: block;
+            border: 3px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../../../css/styles.css">
+
+    <!--  Essential META Tags -->
+
+    <meta property="og:title" content="Hi, I'm Eric."/>
+    <meta property="og:description"
+          content="Project - Microsoft add-in to display recurring meetings that are on the last occurance."/>
+    <meta property="og:image"
+          content="https://user-images.githubusercontent.com/64165327/130359767-5860c777-645a-481d-ae90-453124975c40.png"/>
+    <meta property="og:url" content="https://iamericfletcher.com"/>
+    <meta name="twitter:card" content="summary_large_image">
+
+
+    <!--  Non-Essential, But Recommended -->
+
+    <meta property="og:site_name" content="Eric Fletcher's Personal Website">
+    <meta name="twitter:image:alt" content="Alt text for image">
+
+
+    <!--  Non-Essential, But Required for Analytics -->
+
+    <meta name="twitter:site" content="@iamericfletcher">
+
+    <title>Eric Fletcher's Personal Site</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N994RKZ86V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-N994RKZ86V');
+    </script>
+
+
+</head>
+<body>
+
+<section class="stuff section" id="stuff">
+
+
+    <div style="text-align: center">
+
+        <li style="display: inline-block;">
+            <a href="https://www.iamericfletcher.com" class="nav__link active-link">Home</a>
+        </li>
+
+        <li style="display: inline-block;">
+            <a href="https://www.iamericfletcher.com/blog.html" class="nav__link active-link">Blog</a>
+        </li>
+
+    </div>
+
+    <h1 class="section__title"><u>How to Create Automated Notifications <br> for Meeting Series on Last Iteration <br>
+        With Power Automate</u></h1>
+
+    <div class="container">
+
+        <p class="stuff__notes">
+
+            Once upon a time, I interviewed to be an Executive Assistant at Amazon. For those who are unaware,
+            interviews at Amazon oftentimes include a "Bar Raiser." <a
+                href="https://blog.aboutamazon.eu/working-at-amazon/what-is-a-bar-raiser-at-amazon"
+                target="_blank">A Bar Raiser is an additional interviewer at Amazon
+            who is brought into the hiring process to be an objective third party.</a> The Bar Raiser in my interview
+            asked me
+            a terrific question. They asked if I could develop any application to help increase workflow productivity,
+            what would it be?
+            <br>
+            <br>
+            I thought for a minute and responded by saying I'd develop a Microsoft Outlook add-in that would display an
+            alert for recurring meetings happening that day that are on their last iteration of the meeting series.
+            According to
+            my research, the only way to be notified when a meeting series was on its last iteration was to set up a
+            separate reminder with a date that matches the end date on the initial meeting notification. This is a
+            terrible
+            approach for various reasons. For example, if the end date changes, which it often does, the user would have
+            to remember to update that separate reminder. While this isn't exactly terrible per se, it is certainly not
+            ideal.
+            <br><br>
+            If I could somehow handle this dilemma programmatically, it would lessen the chances of the user forgetting
+            to update
+            that second reminder, or mistakenly updating the reminder with a date that doesn't match.
+            <br>
+            <br>
+            I have now decided to implement a solution to this problem through process automation using Microsoft Power
+            Automate. The process is described below.
+
+        <h1 class="section__title"><u>Overview</u></h1>
+
+        <p class="stuff__notes">
+
+            I created a <a href="https://powerautomate.microsoft.com/en-us/">Power Automate</a> flow that runs every day
+            at 4:00 AM, Coordinated Universal Time (UTC), or 12:00 AM when
+            converted to my timezone (Eastern Standard Time). The order of events are described below.
+
+            <br><br>
+
+            1) Get all of the events on my calendar.
+
+            <br><br>
+
+            2) Filter for events that are recurring.
+
+            <br><br>
+
+            3) Filter the recurring events for events that have a recurrence end date equal to the current date.
+
+            <br><br>
+            4) Check if there are any events that are found after running steps 2 and 3.
+            <br><br>
+            &emsp;- If there are events, send an email notification for each event.
+            <br>
+            &emsp;- If there are no events, send an email notification with blurb stating no events found.
+
+        </p>
+
+        <h1 class="section__title"><u>Example</u></h1>
+
+        <p class="stuff__notes">
+
+            For this example, we have two recurring meetings shown below.
+            <br>
+            <br>
+
+            <span class="img-container">
+
+            <img src="images/calendar-overview.png" alt="">
+
+            </span>
+
+            <br><br>
+
+            The two recurring meetings have a recurrence end date that matches today's date (2021-09-18).
+            As a result, two separate email notifications are sent.
+
+            <br><br>
+            <span class="img-container">
+
+                <img src="images/inbox-notification-emails.png" alt="">
+            </span>
+
+            <br><br>
+
+            The body of each automated email is shown below.
+
+            <br><br>
+            <span class="img-container">
+                <img src="images/notification-email-details-1.png" alt="">
+            </span>
+
+            <br><br>
+            <span class="img-container">
+            <img src="images/notification-email-details-2.png" alt="">
+
+            </span>
+
+            <br><br>
+
+            If there are no recurring events, or recurring events with a recurrence end date that doesn't match the
+            current date,
+            an email notification is also sent.
+
+            <br><br>
+            <span class="img-container">
+
+                <img src="images/notification-email-no-events.png" alt="">
+            </span>
+
+
+        </p>
+
+        <h1 class="section__title"><u>Code</u></h1>
+
+        <p class="stuff__notes">
+
+            Below is the Power Automate flow I created for this project. Feel free to use my code as a framework for
+            your own
+            implementation!
+
+            <br><br>
+
+        <h2 class="section__title">Overview</h2>
+        <br><br>
+
+        <span class="img-container">
+
+            <img src="images/flow-overview.png" alt="">
+
+        </span>
+
+
+        <br><br>
+
+        <h2 class="section__title">Details</h2>
+        <br><br>
+
+        <span class="img-container">
+            <img src="images/flow-details-1.png" alt="">
+
+        </span>
+
+        <br><br>
+        <span class="img-container">
+        <img src="images/flow-details-2.png" alt="">
+        </span>
+
+        <br><br>
+        <span class="img-container">
+        <img src="images/flow-details-3.png" alt="">
+        </span>
+        <br><br>
+        <span class="img-container">
+        <img src="images/flow-details-4.png" alt="">
+        </span>
+        <br><br>
+        <span class="img-container">
+        <img src="images/flow-details-5-a.png" alt="">
+        </span>
+        <br><br>
+        <span class="img-container">
+        <img src="images/flow-details-5-b.png" alt="">
+        </span>
+        <br><br>
+        <span class="img-container">
+        <img src="images/flow-details-5-c.png" alt="">
+        </span>
+        <br>
+
+
+        </p>
+
+        If you're an assistant, have access to Microsoft 365 and Microsoft Power Automate, I'd be happy to help you
+        implement this.
+        Feel free to visit the <a href="https://www.iamericfletcher.com/#contact">Contact</a> section of my website for
+        ways to reach me.
+
+        <br><br>
+
+        Thanks for stopping by!
+        <br>
+        <br>
+        Until next time,
+        <br>
+        <br>
+        Eric
+
+        </p>
+
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
