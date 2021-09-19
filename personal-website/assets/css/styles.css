@@ -810,7 +810,7 @@ img {
     font-style: italic;
     padding: 2px;
     text-align: center;
-    font-size: var(--small-font-size);
+    /*font-size: var(--small-font-size);*/
 }
 
 
