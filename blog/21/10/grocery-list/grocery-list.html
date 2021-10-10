@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vue.js 3 Grocery List</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+            rel="stylesheet"
+    />
+    <link href="../../../../personal-website/assets/img/rounded-headshot.png" rel="shortcut icon" type="image/jpg"/>
+    <link rel="stylesheet" href="grocery-list-styles.css"/>
+    <link rel="stylesheet" href="../../../../personal-website/assets/css/styles.css"/>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+<section class="stuff section" id="stuff">
+
+    <div style="text-align: center">
+
+        <menu>
+
+            <li style="display: inline-block;">
+                <a class="blog__header__links active-link" href="https://www.iamericfletcher.com">Home</a>
+            </li>
+
+            <li style="display: inline-block;">
+                <a class="blog__header__links active-link" href="https://www.iamericfletcher.com/blog.html">Blog</a>
+            </li>
+
+        </menu>
+
+    </div>
+
+
+    <h1 class="section__title"><u>Grocery List Using Vue.js 3</u></h1>
+
+    <div class="container">
+
+        <p class="stuff__notes">
+
+            In my free time, I've been teaching myself the basics of front-end web development. Currently, I am making
+            my
+            way through
+            <a href="https://www.udemy.com/course/vuejs-2-the-complete-guide/">this</a> Udemy course by Maximilian
+            Schwarzmüller.
+            It's been a terrific learning experience thus far. I highly recommend it to anyone interested in learning to
+            build
+            reactive web applications using the Vue.js 3 framework.
+            <br><br>
+            The grocery list application below is pretty basic. Still, in building it, I got the opportunity to
+            implement a
+            ton of rudimentary Vue.js 3 concepts such as <b>interpolation</b>, <b>data and event binding</b>,
+            <b>methods</b>,
+            <b>computed properties</b>,
+            <b>watchers</b>, <b>dynamic styling</b>, <b>conditional content rendering</b>, working with <b>list
+            items</b>,
+            etc.
+            <br><br>
+            Type in a grocery item in the text input field and click the Add Item button. Click on or around the grocery
+            item name to remove it. You will not be able to click and remove an item from within the item text input
+            field
+            thanks to
+            using the <b>stop modifier</b> with the click listener.
+        </p>
+    </div>
+</section>
+
+<header>
+    <h1>Grocery List</h1>
+</header>
+<section id="user-items">
+    <h2>Items to buy</h2>
+    <input type="text" v-model="enteredItemValue"/>
+    <button @click="addItem">Add Item</button>
+    <p v-if="items.length === 0">No items have been added yet! Hooray!</p>
+    <ul v-else>
+        <li v-for="(item, index) in items" :key="item" @click="removeItem(index)">
+            <p>{{ item }}</p>
+            <textarea name="" id="" cols="30" rows="5" @click.stop></textarea>
+        </li>
+    </ul>
+</section>
+</body>
+</html>
