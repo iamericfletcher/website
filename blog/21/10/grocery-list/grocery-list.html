@@ -59,8 +59,7 @@
             items</b>,
             etc.
             <br><br>
-            Type in a grocery item (<u>cheese</u>, <u>bread</u>, or <u>eggs</u> only to protect against trolls) in the
-            text input field and click the Add Item button. Click on or around the grocery
+            Type in a grocery item in the text input field and click the Add Item button. Click on or around the grocery
             item name to remove it. You will not be able to click and remove an item from within the item text input
             field thanks to using the <b>stop modifier</b> with the click listener.
         </p>
@@ -76,9 +75,9 @@
     <button @click="addItem">Add Item</button>
     <p v-if="items.length === 0">No items have been added yet! Hooray!</p>
     <ul v-else>
-        <li v-for="(item, index) in items" :key="item" @click="removeItem(index)">
+        <li v-for="(item, index) in items" :key="item" @click="removeItem(index)" @tap="removeItem(index)">
             <p>{{ item }}</p>
-            <textarea readonly name="" id="" cols="30" rows="5" @click.stop>This is where you could enter additional notes. To protect against trolls, this text area is read-only.</textarea>
+            <textarea name="" id="" cols="30" rows="5" @click.stop @tap.stop></textarea>
         </li>
     </ul>
 </section>

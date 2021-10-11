@@ -7,10 +7,7 @@ const app = Vue.createApp({
   },
   methods: {
     addItem() {
-
-      if (this.enteredItemValue === 'cheese' || this.enteredItemValue === 'bread' || this.enteredItemValue === 'eggs') {
         this.items.push(this.enteredItemValue);
-      }
     },
     removeItem(index) {
       this.items.splice(index, 1);
