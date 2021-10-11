@@ -75,9 +75,9 @@
     <button @click="addItem">Add Item</button>
     <p v-if="items.length === 0">No items have been added yet! Hooray!</p>
     <ul v-else>
-        <li v-for="(item, index) in items" :key="item" @click="removeItem(index)" @tap="removeItem(index)">
+        <li v-for="(item, index) in items" :key="item" @click="removeItem(index)">
             <p>{{ item }}</p>
-            <textarea name="" id="" cols="30" rows="5" @click.stop @tap.stop></textarea>
+            <textarea name="" id="" cols="30" rows="5" @click.stop></textarea>
         </li>
     </ul>
 </section>
